@@ -1,0 +1,24 @@
+﻿@model DrinkVendingMachine.Controllers.AdminController.ExternalLoginViewsModel
+
+
+<h1>External registration</h1>
+<form asp-controller="Admin" asp-action="RegisterExternal" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <input hidden asp-for="ReturnUrl" />
+    <div>
+        <p style="color: #999">
+            <span>Нельзя вводить пробел </span><br />
+        </p>
+    </div>
+    <div>
+        <label>UserName</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <p>
+        <button type="submit">Save</button>
+    </p>
+</form>
+

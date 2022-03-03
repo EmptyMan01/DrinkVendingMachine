@@ -1,0 +1,53 @@
+﻿@model DrinkVendingMachine.Controllers.AdminController.LoginViewsModel
+
+<h1>Вход в приложение</h1>
+
+<a asp-controller="Admin" asp-action="Index"> [Home]</a>
+
+
+<h3>
+    Login with external provider
+</h3>
+
+<form asp-controller="Admin" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+
+    @if (Model.ExternalProviders != null)
+    {
+        @foreach (var provider in Model.ExternalProviders)
+        {
+            <button type="submit"
+                    name="provider"
+                    value="@provider.Name">
+                @provider.DisplayName
+            </button>
+        }
+
+    }
+
+</form>
+<div>
+    <p style="color: #999">
+        <span>You can use: User</span><br />
+        <span>and password: 123456</span>
+    </p>
+</div>
+<form asp-controller="Admin" asp-action="Login" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <input hidden asp-for="ReturnUrl" />
+    <div>
+        <label>UserName</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <p>
+        <button type="submit">Log in</button>
+    </p>
+</form>
+

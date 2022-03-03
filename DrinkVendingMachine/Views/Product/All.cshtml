@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<DrinkVendingMachine.Models.Products>
+<h2>Внести моентки</h2>
+<form method="post" asp-controller="Count" asp-action="One">
+    <input type="submit" value="1р" />
+</form>
+<form method="post" asp-controller="Count" asp-action="Two">
+    <input type="submit" value="2р" />
+</form>
+<form method="post" asp-controller="Count" asp-action="Five">
+
+    <input type="submit" value="5р" />
+</form>
+<form method="post" asp-controller="Count" asp-action="Ten">
+    <input type="submit" value="10р" />
+</form>
+
+<h4>Напитки</h4>
+@foreach (var item in Model)
+{
+    <td>
+        <dl class="col-20">
+            <dd class="col-sm-10">
+                <img src="@("~/Sprite/"+item.NameSprite)" asp-append-version="true" width="250" height="250" />
+                @*<a asp-controller="Count" asp-action="GG" name="@(item.Price)">@(item.Price)</a>*@
+                <div class="col">
+                    @* <input type="number"  name="Price" class="btn btn-info w-75" value=@(item.Price) /><br />*@
+                </div>
+            </dd>
+        </dl>
+    </td>
+}
+@*@foreach (var item in Model)
+{
+    @for (int i = 0; i < item.Me.Count; i++)
+    {
+
+        <h1>К оплате готово = @item.Me</h1>
+    }
+}*@
+<form method="post" asp-controller="Count"  asp-action="One0">
+
+        <input type="submit" value="Како кола 1р" />
+</form>
+<form method="post" asp-controller="Count" asp-action="Two0">
+
+    <input type="submit" value="Фунта 2р" />
+</form>
+<form method="post" asp-controller="Count" asp-action="Five0">
+   
+    <input type="submit" value="Квас 5р" />
+</form>
+<form method="post" asp-controller="Count" asp-action="Ten0">
+
+    <input type="submit" value="Пупси 10р" />
+</form>
+<h4>оплата</h4>
+<form method="post" asp-controller="Count" asp-action="payment">
+
+    <input type="submit" value="Оплатить и выдать сдачи" />
+</form>
+    <!--<form method="post" action="Count/Two0">
+        <input type="submit" value="Фанта 2р" />
+    </form>
+    <form method="post" action="Count/Five0">
+
+        <input type="submit" value=" Квас 5р" />
+    </form>
+    <form method="post" action="Count/Ten0">
+        <input type="submit" value=" Пепси 10р" />
+    </form>
+    <a asp-action="Index">back to List</a>-->
+    @*<dd class="col-sm-10">
+            <img src="@("~/Sprite/"+Model.NameSprite)" asp-append-version="true" width="250px" height="250px" />
+        </dd>*@
+
+<!--</form>-->
